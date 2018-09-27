@@ -4,4 +4,10 @@
 
 ## 4-9: for 循环
 
-* **post/post.wxml**
+- **post/post.wxml**
+
+## 4-10: 事件
+
+- **welcome.wxml**
+> catchtap: 阻止冒泡
+> bindtap: 冒泡
