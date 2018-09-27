@@ -11,7 +11,15 @@ Page({
 		var postData = postsData.postList[postId]
 		this.setData({
 			postData: postData
-		})
+    })
+    /*
+    文章缓存状态
+    var postsCollected = {
+      1: "true",
+      2: "false",
+      ...
+    }
+    */
 		/* [getStorageSync](https://developers.weixin.qq.com/miniprogram/dev/api/storage/wx.getStorageSync.html) */
 		var postsCollected = wx.getStorageSync('posts_collected')
 		if (postsCollected) {
@@ -23,7 +31,10 @@ Page({
 			var postsCollected = {}
 			postsCollected[postId] = false
 			/* [setStorageSync](https://developers.weixin.qq.com/miniprogram/dev/api/storage/wx.setStorageSync.html) */
-			wx.setStorageSync('posts_collected', postsCollected)
+      wx.setStorageSync('posts_collected', postsCollected)
+      /* 缓存上限 < 10MB */
+      /* [clearStorageSync](https://developers.weixin.qq.com/miniprogram/dev/api/storage/wx.clearStorageSync.html) */
+      // wx.clearStorageSync();
 		}
 		if (
 			app.globalData.g_isPlayingMusic &&
@@ -36,17 +47,19 @@ Page({
 		this.setMusicMonitor()
 	},
 	setMusicMonitor: function() {
-		//点击播放图标和总控开关都会触发这个函数
+		/* 点击播放图标和总控开关都会触发这个函数 */
     var that = this
     /* [onBackgroundAudioPlay](https://developers.weixin.qq.com/miniprogram/dev/api/media/background-audio/wx.onBackgroundAudioPlay.html) */
 		wx.onBackgroundAudioPlay(function(event) {
 			var pages = getCurrentPages()
 			var currentPage = pages[pages.length - 1]
 			if (currentPage.data.currentPostId === that.data.currentPostId) {
-				// 打开多个post-detail页面后，每个页面不会关闭，只会隐藏。通过页面栈拿到到
-				// 当前页面的postid，只处理当前页面的音乐播放。
+        /*
+				打开多个post-detail页面后，每个页面不会关闭，只会隐藏。通过页面栈拿到到
+				当前页面的postid，只处理当前页面的音乐播放。
+        */
 				if (app.globalData.g_currentMusicPostId == that.data.currentPostId) {
-					// 播放当前页面音乐才改变图标
+					/* 播放当前页面音乐才改变图标 */
 					that.setData({
 						isPlayingMusic: true
 					})
@@ -99,7 +112,7 @@ Page({
 	getPostsCollectedSyc: function() {
 		var postsCollected = wx.getStorageSync('posts_collected')
 		var postCollected = postsCollected[this.data.currentPostId]
-		// 收藏变成未收藏，未收藏变成收藏
+		/* 收藏变成未收藏，未收藏变成收藏 */
 		postCollected = !postCollected
 		postsCollected[this.data.currentPostId] = postCollected
 		this.showToast(postsCollected, postCollected)
