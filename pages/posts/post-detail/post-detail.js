@@ -1,4 +1,5 @@
 var postsData = require('../../../data/posts-data.js')
+/* 调用 app.js */
 var app = getApp()
 
 Page({
