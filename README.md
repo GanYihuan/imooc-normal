@@ -44,3 +44,5 @@
 > 参数传递: **movie-list-template** -> data-category -> onMoveTap -> 获取 category -> 跳转时传入 category -> more-movie 获取 category
 
 ## 8-2: 动态标题
+
+## 8-5: 下拉刷新

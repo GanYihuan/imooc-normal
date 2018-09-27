@@ -11,7 +11,7 @@ Page({
 		isEmpty: true
 	},
 	onLoad: function(options) {
-    /* 获取传入参数 */
+		/* 获取传入参数 */
 		var category = options.category
 		this.data.navigateTitle = category
 		var dataUrl = ''
@@ -31,20 +31,6 @@ Page({
 		})
 		this.data.requestUrl = dataUrl
 		util.http(dataUrl, this.processDoubanData)
-	},
-	onScrollLower: function(event) {
-		var nextUrl =
-			this.data.requestUrl + '?start=' + this.data.totalCount + '&count=20'
-		util.http(nextUrl, this.processDoubanData)
-		wx.showNavigationBarLoading()
-	},
-	onPullDownRefresh: function(event) {
-		var refreshUrl = this.data.requestUrl + '?star=0&count=20'
-		this.data.movies = {}
-		this.data.isEmpty = true
-		this.data.totalCount = 0
-		util.http(refreshUrl, this.processDoubanData)
-		wx.showNavigationBarLoading()
 	},
 	processDoubanData: function(moviesDouban) {
 		var movies = []
@@ -78,6 +64,21 @@ Page({
 		this.data.totalCount += 20
 		wx.hideNavigationBarLoading()
 		wx.stopPullDownRefresh()
+	},
+	/* 加载更多 */
+	onScrollLower: function(event) {
+		var nextUrl =
+			this.data.requestUrl + '?start=' + this.data.totalCount + '&count=20'
+		util.http(nextUrl, this.processDoubanData)
+		wx.showNavigationBarLoading()
+	},
+	onPullDownRefresh: function(event) {
+		var refreshUrl = this.data.requestUrl + '?star=0&count=20'
+		this.data.movies = {}
+		this.data.isEmpty = true
+		this.data.totalCount = 0
+		util.http(refreshUrl, this.processDoubanData)
+		wx.showNavigationBarLoading()
 	},
 	onReady: function(event) {
 		wx.setNavigationBarTitle({
