@@ -11,6 +11,7 @@ Page({
 		isEmpty: true
 	},
 	onLoad: function(options) {
+    /* 获取传入参数 */
 		var category = options.category
 		this.data.navigateTitle = category
 		var dataUrl = ''

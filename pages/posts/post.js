@@ -14,8 +14,10 @@ Page({
 		})
 	},
 	onPostTap: function(event) {
-		/* currentTarget: 当前鼠标点击的组件 */
-		/* dataset: 自定义属性集合, 这里是 **post.wxml/data-postId** */
+    /*
+		currentTarget: 指的是事件捕获的组件
+		dataset: 自定义属性集合, 这里是 **post.wxml/data-postId**
+    */
 		var postId = event.currentTarget.dataset.postid
 		// console.log("on post id is" + postId);
 		wx.navigateTo({

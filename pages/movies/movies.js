@@ -77,6 +77,11 @@ Page({
 		})
 	},
 	onMovieTap: function(event) {
+    /*
+    target 指的是当前点击的组件, 这里指的是 image
+    currentTarget 指的是事件捕获的组件, 这里指的是 swiper
+    dataset: 自定义属性集合
+    */
 		var movieId = event.currentTarget.dataset.movieid
 		wx.navigateTo({
 			url: 'movie-detail/movie-detail?id=' + movieId

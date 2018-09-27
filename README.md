@@ -40,3 +40,5 @@
 ## 7-11-12-13-14-15-16: 数据
 
 ## 8-1: 更多
+
+> **movie-list-template** -> data-category -> onMoveTap -> 获取 category -> 跳转时传入 category -> more-movie 获取 category
