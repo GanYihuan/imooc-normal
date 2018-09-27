@@ -14,3 +14,5 @@
 > bindtap: 冒泡
 
 ## 6-4, 6-5, 6-6: 缓存
+
+## 6-7, 6-8, 6-9: showModal, showToast
