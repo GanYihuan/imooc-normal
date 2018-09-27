@@ -1,8 +1,16 @@
 <import src="post-item/post-item-template.wxml" />
 <!-- <import src="/pages/posts/post-item/post-item-template.wxml" /> -->
 <view>
-  <swiper catchtap="onSwiperTap" vertical="{{false}}" indicator-dots="true" autoplay="true" interval="5000">
+  <!-- [swiper](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html) -->
+  <swiper 
+    catchtap="onSwiperTap"
+    vertical="{{false}}"
+    indicator-dots="true"
+    autoplay="true"
+    interval="2000"
+  >
     <swiper-item>
+      <!-- [image](https://developers.weixin.qq.com/miniprogram/dev/component/image.html) -->
       <image id="7" src="/images/wx.png" data-postId="3"></image>
     </swiper-item>
     <swiper-item>
@@ -13,7 +21,7 @@
     </swiper-item>
   </swiper>
   <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
-    <!-- //template -->
+    <!-- template -->
     <view catchtap="onPostTap" data-postId="{{item.postId}}">
       <template is="postItem" data="{{...item}}" />
     </view>
