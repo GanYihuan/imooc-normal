@@ -6,9 +6,9 @@
 .stars {
 	display: flex;
 	flex-direction: row;
-	height: 17rpx;
 	margin-right: 24rpx;
 	margin-top: 6rpx;
+	height: 17rpx;
 }
 
 .stars image {

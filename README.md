@@ -31,4 +31,6 @@
 
 ## 7-7
 
-> douban api 替代地址
+> douban api 替代地址 **app.js**
+
+## 7-8: star

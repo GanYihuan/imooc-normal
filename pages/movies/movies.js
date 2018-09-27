@@ -4,7 +4,6 @@ var app = getApp()
 Page({
 	// RESTFul API JSON
 	// SOAP XML
-	// 粒度 不是 力度
 	data: {
 		inTheaters: {},
 		comingSoon: {},

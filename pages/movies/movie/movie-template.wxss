@@ -7,9 +7,9 @@
 }
 
 .movie-img {
+	padding-bottom: 20rpx;
 	width: 200rpx;
 	height: 270rpx;
-	padding-bottom: 20rpx;
 }
 
 .movie-title {
