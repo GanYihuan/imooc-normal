@@ -24,9 +24,8 @@ Page({
 	},
 	onSwiperTap: function(event) {
 		/*
-    target 和currentTarget
-		target指的是当前点击的组件 和currentTarget 指的是事件捕获的组件
-		target这里指的是image，而currentTarget指的是swiper
+    target 指的是当前点击的组件, 这里指的是 image
+    currentTarget 指的是事件捕获的组件, 这里指的是 swiper
     */
 		var postId = event.target.dataset.postid
 		wx.navigateTo({
