@@ -61,7 +61,8 @@ Page({
 		this.setData({
 			movies: totalMovies
 		})
-		this.data.totalCount += 20
+    this.data.totalCount += 20
+    /* [hideNavigationBarLoading](https://developers.weixin.qq.com/miniprogram/dev/api/ui/navigation-bar/wx.hideNavigationBarLoading.html) */ 
 		wx.hideNavigationBarLoading()
 		wx.stopPullDownRefresh()
 	},
@@ -70,17 +71,20 @@ Page({
 		var nextUrl =
 			this.data.requestUrl + '?start=' + this.data.totalCount + '&count=20'
 		util.http(nextUrl, this.processDoubanData)
-		wx.showNavigationBarLoading()
+    /* [showNavigationBarLoading](https://developers.weixin.qq.com/miniprogram/dev/api/ui/navigation-bar/wx.showNavigationBarLoading.html) */
+    wx.showNavigationBarLoading()
 	},
 	onPullDownRefresh: function(event) {
 		var refreshUrl = this.data.requestUrl + '?star=0&count=20'
 		this.data.movies = {}
 		this.data.isEmpty = true
 		this.data.totalCount = 0
-		util.http(refreshUrl, this.processDoubanData)
+    util.http(refreshUrl, this.processDoubanData)
+    /* [showNavigationBarLoading](https://developers.weixin.qq.com/miniprogram/dev/api/ui/navigation-bar/wx.showNavigationBarLoading.html) */
 		wx.showNavigationBarLoading()
 	},
 	onReady: function(event) {
+    /* [showNavigationBarLoading](https://developers.weixin.qq.com/miniprogram/dev/api/ui/navigation-bar/wx.showNavigationBarLoading.html) */
 		wx.setNavigationBarTitle({
 			title: this.data.navigateTitle
 		})
