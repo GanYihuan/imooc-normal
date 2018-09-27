@@ -9,5 +9,8 @@
 ## 4-10: 事件
 
 - **welcome.wxml**
+
 > catchtap: 阻止冒泡
 > bindtap: 冒泡
+
+## 6-4, 6-5, 6-6

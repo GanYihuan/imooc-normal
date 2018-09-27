@@ -2,13 +2,7 @@
 <!-- <import src="/pages/posts/post-item/post-item-template.wxml" /> -->
 <view>
   <!-- [swiper](https://developers.weixin.qq.com/miniprogram/dev/component/swiper.html) -->
-  <swiper 
-    catchtap="onSwiperTap"
-    vertical="{{false}}"
-    indicator-dots="true"
-    autoplay="true"
-    interval="2000"
-  >
+  <swiper catchtap="onSwiperTap" vertical="{{false}}" indicator-dots="true" autoplay="true" interval="2000">
     <swiper-item>
       <!-- [image](https://developers.weixin.qq.com/miniprogram/dev/component/image.html) -->
       <image id="7" src="/images/wx.png" data-postId="3"></image>
@@ -23,7 +17,9 @@
   <!-- wx:for="{{数组}}" -->
   <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
     <!-- catchtap: 监听点击事件 -->
+    <!-- data-postId: 自定义属性 -->
     <view catchtap="onPostTap" data-postId="{{item.postId}}">
+      <!-- template 是占位符，会消失，不应该在上面加事件 -->
       <template is="postItem" data="{{...item}}" />
     </view>
   </block>

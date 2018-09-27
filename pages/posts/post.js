@@ -14,6 +14,8 @@ Page({
 		})
 	},
 	onPostTap: function(event) {
+		/* currentTarget: 当前鼠标点击的组件 */
+		/* dataset: 自定义属性集合, 这里是 **post.wxml/data-postId** */
 		var postId = event.currentTarget.dataset.postid
 		// console.log("on post id is" + postId);
 		wx.navigateTo({
@@ -21,9 +23,11 @@ Page({
 		})
 	},
 	onSwiperTap: function(event) {
-		// target 和currentTarget
-		// target指的是当前点击的组件 和currentTarget 指的是事件捕获的组件
-		// target这里指的是image，而currentTarget指的是swiper
+		/*
+    target 和currentTarget
+		target指的是当前点击的组件 和currentTarget 指的是事件捕获的组件
+		target这里指的是image，而currentTarget指的是swiper
+    */
 		var postId = event.target.dataset.postid
 		wx.navigateTo({
 			url: 'post-detail/post-detail?id=' + postId
