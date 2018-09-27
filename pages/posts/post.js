@@ -1,12 +1,14 @@
 var postsData = require('../../data/posts-data.js')
 
 Page({
-	data: {
-		// 小程序总是会读取data对象来做数据绑定，这个动作我们称为动作A
-		// 而这个动作A的执行，是在onLoad函数执行之后发生的
-	},
+	// data() {
+	// 小程序总是会读取data对象来做数据绑定，这个动作我们称为动作A
+	// 而这个动作A的执行，是在onLoad函数执行之后发生的
+	// },
 	onLoad: function() {
+		/* 页面初始化 options 为页面跳转带来的参数 */
 		// this.data.postList = postsData.postList
+		/* setData(): 等同在 data() 里面写数据 */
 		this.setData({
 			postList: postsData.postList
 		})

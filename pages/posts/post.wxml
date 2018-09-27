@@ -20,8 +20,9 @@
       <image src="/images/iqiyi.png" data-postId="5"></image>
     </swiper-item>
   </swiper>
+  <!-- wx:for="{{数组}}" -->
   <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
-    <!-- template -->
+    <!-- catchtap: 监听点击事件 -->
     <view catchtap="onPostTap" data-postId="{{item.postId}}">
       <template is="postItem" data="{{...item}}" />
     </view>
