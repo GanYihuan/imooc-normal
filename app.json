@@ -1,9 +1,10 @@
 {
 	"pages": [
-    "pages/movies/movies",
+		"pages/movies/movies",
 		"pages/welcome/welcome",
-    "pages/posts/post",
-		"pages/posts/post-detail/post-detail"
+		"pages/posts/post",
+		"pages/posts/post-detail/post-detail",
+		"pages/movies/more-movie/more-movie"
 	],
 	"window": {
 		"navigationBarBackgroundColor": "#405f80"
@@ -12,7 +13,7 @@
 		"borderStyle": "white",
 		"position": "bottom",
 		"list": [
-      {
+			{
 				"pagePath": "pages/movies/movies",
 				"text": "电影",
 				"iconPath": "images/tab/dianying.png",
