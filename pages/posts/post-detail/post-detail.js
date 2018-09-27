@@ -116,6 +116,21 @@ Page({
 		postCollected = !postCollected
 		postsCollected[this.data.currentPostId] = postCollected
 		this.showToast(postsCollected, postCollected)
+  },
+  showToast: function(postsCollected, postCollected) {
+    /* [setStorageSync](https://developers.weixin.qq.com/miniprogram/dev/api/storage/wx.setStorageSync.html) */
+    /* 更新文章是否的缓存值 */
+		wx.setStorageSync('posts_collected', postsCollected)
+		/* 更新数据绑定变量，从而实现切换图片 */
+		this.setData({
+			collected: postCollected
+    })
+    /* [showToast](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html) */
+		wx.showToast({
+			title: postCollected ? '收藏成功' : '取消成功',
+			duration: 1000,
+			icon: 'success'
+		})
 	},
 	showModal: function(postsCollected, postCollected) {
     var that = this
@@ -138,21 +153,6 @@ Page({
 					})
 				}
 			}
-		})
-	},
-	showToast: function(postsCollected, postCollected) {
-    /* [setStorageSync](https://developers.weixin.qq.com/miniprogram/dev/api/storage/wx.setStorageSync.html) */
-    /* 更新文章是否的缓存值 */
-		wx.setStorageSync('posts_collected', postsCollected)
-		/* 更新数据绑定变量，从而实现切换图片 */
-		this.setData({
-			collected: postCollected
-    })
-    /* [showToast](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html) */
-		wx.showToast({
-			title: postCollected ? '收藏成功' : '取消成功',
-			duration: 1000,
-			icon: 'success'
 		})
 	},
 	onShareTap: function(event) {
