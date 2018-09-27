@@ -2,7 +2,7 @@ var util = require('../../utils/util.js')
 var app = getApp()
 
 Page({
-  /*
+	/*
 	RESTFul API JSON
 	SOAP XML
   */
@@ -29,17 +29,17 @@ Page({
 		var that = this
 		wx.request({
 			url: url,
-      /* OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT */
-      method: 'GET',
+			/* OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT */
+			method: 'GET',
 			header: {
 				'Content-Type': 'json'
 			},
 			success: function(res) {
-        // console.log(res)
+				// console.log(res)
 				that.processDoubanData(res.data, settedKey, categoryTitle)
 			},
 			fail: function(error) {
-        /* 断网的时候调用 */
+				/* 断网的时候调用 */
 				console.log(error)
 			}
 		})
@@ -53,7 +53,7 @@ Page({
 				title = title.substring(0, 6) + '...'
 			}
 			var temp = {
-        /* [1,1,1,1,1] [1,1,1,0,0] */
+				/* [1,1,1,1,1] [1,1,1,0,0] */
 				stars: util.convertToStarsArray(subject.rating.stars),
 				title: title,
 				average: subject.rating.average,
@@ -61,8 +61,8 @@ Page({
 				movieId: subject.id
 			}
 			movies.push(temp)
-    }
-    /* js 动态赋值 */
+		}
+		/* js 动态赋值 */
 		var readyData = {}
 		readyData[settedKey] = {
 			categoryTitle: categoryTitle,
@@ -73,8 +73,7 @@ Page({
 	onMoreTap: function(event) {
 		var category = event.currentTarget.dataset.category
 		wx.navigateTo({
-			url: 'more-movie/more-movie'
-			// url: 'more-movie/more-movie?category=' + category
+			url: 'more-movie/more-movie?category=' + category
 		})
 	},
 	onMovieTap: function(event) {
