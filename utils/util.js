@@ -31,7 +31,8 @@ function convertToCastString(casts) {
 	var castsjoin = ''
 	for (var idx in casts) {
 		castsjoin = castsjoin + casts[idx].name + ' / '
-	}
+  }
+  /* 最后的 ' / ' 去除掉 */
 	return castsjoin.substring(0, castsjoin.length - 2)
 }
 

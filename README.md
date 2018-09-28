@@ -56,3 +56,7 @@
 ## 9-3-4-5: movie-detail
 
 > 参数传递: **movie-template** -> data-movieId -> onMovieTap **movie.js** -> **movie-detail** onLoad
+
+## 9-6: 判空
+
+- **Movie.js**
