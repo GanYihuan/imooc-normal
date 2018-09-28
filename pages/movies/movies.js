@@ -101,6 +101,7 @@ Page({
 		})
 	},
 	onBindBlur: function(event) {
+    /* [detail](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html) */ 
 		var text = event.detail.value
 		var searchUrl = app.globalData.doubanBase + '/v2/movie/search?q=' + text
 		this.getMovieListData(searchUrl, 'searchResult', '')
