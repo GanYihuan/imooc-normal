@@ -1,9 +1,10 @@
 <import src="../stars/stars-template.wxml" />
 <view class="container">
+  <!-- [image](https://developers.weixin.qq.com/miniprogram/dev/component/image.html) -->
   <image class="head-img" src="{{movie.movieImg}}" mode="aspectFill" />
   <view class="head-img-hover" data-src="{{movie.movieImg}}" catchtap="viewMoviePostImg">
     <text class="main-title">{{movie.title}}</text>
-    <text class="sub-title">{{movie.country + " · "+movie.year}}</text>
+    <text class="sub-title">{{movie.country + " · " + movie.year}}</text>
     <view class="like">
       <text class="highlight-font">{{movie.wishCount}}</text>
       <text class="plain-font">人喜欢</text>
